@@ -15,6 +15,10 @@ class Vendor
   end
 
   def stock(item, item_count)
-    inventory[item] = item_count 
+    if inventory[item] == nil 
+      inventory[item] = item_count
+    else  
+      inventory[item] += item_count
+    end
   end
 end
