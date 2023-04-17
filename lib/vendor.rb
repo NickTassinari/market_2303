@@ -23,8 +23,6 @@ class Vendor
   end
 
   def potential_revenue
-    @inventory.inject(0) do |total, inventory|
-      total += inventory.first.price * inventory.last
-    end
+    @inventory.inject(0) {|total, inventory| total += inventory.first.price * inventory.last}
   end
 end
