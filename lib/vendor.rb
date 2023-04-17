@@ -21,4 +21,10 @@ class Vendor
       inventory[item] += item_count
     end
   end
+
+  def potential_revenue
+    @inventory.inject(0) do |total, inventory|
+      total += inventory.first.price * inventory.last
+    end
+  end
 end
