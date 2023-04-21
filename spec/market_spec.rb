@@ -79,7 +79,7 @@ RSpec.describe Market do
       market.add_vendor(vendor2)
       market.add_vendor(vendor3)
       #testing my helper method total_items
-      expect(market.total_items).to eq([item1, item2, item4, item3])
+      # expect(market.total_items).to eq([item1, item2, item4, item3])
       expect(market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
     end
   end

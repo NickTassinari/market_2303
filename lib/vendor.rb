@@ -3,15 +3,20 @@ class Vendor
 
   def initialize(name)
     @name = name 
-    @inventory = {}
+    # @inventory = {}
+    @inventory = Hash.new(0)
   end
 
+  # def check_stock(item)
+  #   if inventory.include?(item)
+  #     inventory[item]
+  #   else  
+  #     0
+  #   end
+  # end
+
   def check_stock(item)
-    if inventory.include?(item)
-      inventory[item]
-    else  
-      0
-    end
+    @inventory[item]
   end
 
   def stock(item, item_count)
@@ -23,6 +28,10 @@ class Vendor
   end
 
   def potential_revenue
-    @inventory.inject(0) {|total, inventory| total += inventory.first.price * inventory.last}
+    # @inventory.inject(0) {|total, inventory| total += inventory.first.price * inventory.last}
+    @inventory.sum do |item, amount|
+      item.price * amount
+    end
+    
   end
 end
